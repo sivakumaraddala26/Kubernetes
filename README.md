@@ -1,4 +1,4 @@
-# Kubernetes
+# Kubernetes Minikube Installation
 + Kubernetes minikube & kubectl installation in aws ec2
 + Minikube install pre-required details link: https://minikube.sigs.k8s.io/docs/start/
 - Choose the operation system required specifications
