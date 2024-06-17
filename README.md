@@ -29,6 +29,36 @@
 - Once done the this process complete and will get a output like the below screen shot
  ![imag2](https://github.com/sivakumaraddala26/Kubernetes/assets/80095151/395fcad6-cee2-4353-8b6b-95cb533869ab)
 
+# Minikube install
+- curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+- sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+- minikube version
+
+# Install Kubectl on Ubuntu
+- sudo apt-get update
+- curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+- sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+- chmod +x kubectl
+  mkdir -p ~/.local/bin
+  mv ./kubectl ~/.local/bin/kubectl
+  # and then append (or prepend) ~/.local/bin to $PATH
+- kubectl version --client
+- kubectl version --client --output=yaml for more details
+
+# Docker Installation
+- sudo apt update & sudo apt upgrade
+- sudo apt install apt-transport-https curl
+- sudo apt install docker.io
+- sudo systemctl enable docker
+- sudo systemctl start docker
+- ocker --version
+
+# Minikube Uninstall on Ubuntu
+- minikube stop – Stops the Minikube cluster
+- minikube delete – Deletes the Minikube cluster and its resources
+- rm -rf /usr/local/bin/minikube – Removes the Minikube binary
+- rm -rf ~/.minikube – Deletes Minikube configuration and VM files
+- rm -rf /usr/local/bin/kubectl – Removes the kubectl binary (if installed)
 
 
 
