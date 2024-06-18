@@ -41,17 +41,20 @@
 - chmod +x kubectl
   mkdir -p ~/.local/bin
   mv ./kubectl ~/.local/bin/kubectl
-  # and then append (or prepend) ~/.local/bin to $PATH
+  #and then append (or prepend) ~/.local/bin to $PATH
 - kubectl version --client
 - kubectl version --client --output=yaml for more details
 
 # Docker Installation
 - sudo apt update & sudo apt upgrade
-- sudo apt install apt-transport-https curl
-- sudo apt install docker.io
-- sudo systemctl enable docker
+- sudo apt install docker.io -y 
+- sudo systemctl enable docker or sudo systemctl enable docker --now
 - sudo systemctl start docker
-- ocker --version
+- docker --version
+- #sudo usermod -aG docker $USER or #sudo usermod -aG docker ubuntu
+- getent group docker
+- newgrp docker
+- sudo service docker restart
 
 # Minikube Uninstall on Ubuntu
 - minikube stop – Stops the Minikube cluster
@@ -59,6 +62,26 @@
 - rm -rf /usr/local/bin/minikube – Removes the Minikube binary
 - rm -rf ~/.minikube – Deletes Minikube configuration and VM files
 - rm -rf /usr/local/bin/kubectl – Removes the kubectl binary (if installed)
+
+# Uninstall Docker in all 
+- sudo apt-get purge -y docker-engine docker docker.io docker-ce  
+- sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce  
+- sudo umount /var/lib/docker/
+- sudo rm -rf /var/lib/docker /etc/docker
+- sudo rm /etc/apparmor.d/docker
+- sudo groupdel docker
+- sudo rm -rf /var/run/docker.sock
+- sudo rm -rf /usr/bin/docker-compose
+
+# Kubectl Uninstall
+remove all configurations and data related to Kubernetes
+- sudo apt-get purge kubeadm kubectl kubelet kube*
+- sudo rm -rf ~/.kube
+- sudo rm -rf /etc/cni
+- sudo rm -rf /etc/kubernetes
+- sudo rm -rf /var/lib/etcd
+- sudo rm -rf /var/lib/kubelet
+
 
 
 
