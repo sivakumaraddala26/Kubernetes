@@ -1,0 +1,45 @@
+kind: Pod (P should be catipatl)
+apiVersion: v1 
+metadata:
+  name: testpod 
+spec:
+  containers:
+    - name: c00
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true; do echo Hello-Kubernetes; sleep 5 ; done"]
+    - name: container
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true; do echo Second Container is still running; sleep 3 ; done"] 
+  restartPolicy: Never
+
+
+commands:
+# Run the following command to deploy the pod: 
+kubectl apply -f Day04.yml 
+
+# List Pods: 
+To list all the pods, use this command: 
+kubectl get pods 
+
+# Check Logs: 
+- You can check the logs of the primary container with: 
+kubectl logs -f pod1 
+
+- To check the logs of the primary container, specify the container name: 
+kubectl logs -f pod1 -c container1 
+
+- To check the logs of the second container, specify the container name:  
+kubectl logs -f pod1 -c container2
+
+# Delete the Pod: 
+- To delete the pod, use this command: 
+kubectl delete pod pod1 
+
+- To list the IP of the pod, use the below command. 
+kubectl pod pod1 -c container1 — hostname -i 
+
+- To delete the pod by specifying the manifest file name 
+kubectl delete -f Day04.yml
+
+
+
