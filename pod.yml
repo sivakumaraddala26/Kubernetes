@@ -15,7 +15,7 @@ spec:
 
 commands:
 # Run the following command to deploy the pod: 
-kubectl apply -f Day04.yml 
+kubectl apply -f pod.yml 
 
 # List Pods: 
 To list all the pods, use this command: 
@@ -23,23 +23,27 @@ kubectl get pods
 
 # Check Logs: 
 - You can check the logs of the primary container with: 
-kubectl logs -f pod1 
+kubectl logs -f testpod 
 
 - To check the logs of the primary container, specify the container name: 
-kubectl logs -f pod1 -c container1 
+kubectl logs -f pod1 -c c00 (container1 - name) 
 
 - To check the logs of the second container, specify the container name:  
-kubectl logs -f pod1 -c container2
+kubectl logs -f pod1 -c container (container2 - name) 
 
 # Delete the Pod: 
 - To delete the pod, use this command: 
-kubectl delete pod pod1 
+kubectl delete pod testpod (name) 
 
 - To list the IP of the pod, use the below command. 
-kubectl pod pod1 -c container1 — hostname -i 
+kubectl get pods -o wide
+
+- If you want to run the hostname -i command inside a container of a pod, use:
+kubectl exec testpod(name of pod) -c container(name of container)  -- hostname -i
+ex: kubectl exec testpod -c container -- hostname -i
 
 - To delete the pod by specifying the manifest file name 
-kubectl delete -f Day04.yml
+kubectl delete -f pod.yml
 
 
 
